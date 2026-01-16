@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3r5-ll0j@roij3#n^j_=#d*5dbe%j+9p8*8ect5+13q+b!d_&d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'geo_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'geo_db',
+        'USER': 'geo_user',
+        'PASSWORD': 'geodjango',
+        'HOST': '127.0.0.1',
+        'PORT': 5432
     }
 }
 
